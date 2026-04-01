@@ -47,6 +47,32 @@ window.addEventListener("load", () => {
       .append(label, input, document.createElement("hr"));
   }
 
+  document.getElementById("expectedfile").addEventListener("change", () => {
+    document.getElementById("expectedlabel").innerText =
+      document.getElementById("expectedfile").files[0].name || "no file";
+  });
+  document
+    .getElementById("expectedfilebutton")
+    .addEventListener("click", () => {
+      document.getElementById("expectedfile").click();
+    });
+
+  document.getElementById("goalfile").addEventListener("change", () => {
+    document.getElementById("goallabel").innerText =
+      document.getElementById("goalfile").files[0].name || "no file";
+  });
+  document.getElementById("goalfilebutton").addEventListener("click", () => {
+    document.getElementById("goalfile").click();
+  });
+
+  document.getElementById("scene").addEventListener("change", () => {
+    document.getElementById("scenelabel").innerText =
+      document.getElementById("scene").files[0].name || "no file";
+  });
+  document.getElementById("scenebutton").addEventListener("click", () => {
+    document.getElementById("scene").click();
+  });
+
   document.querySelector("#error > button").addEventListener("click", () => {
     document.getElementById("errorcontainer").style.display = "none";
   });

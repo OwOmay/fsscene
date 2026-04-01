@@ -18,7 +18,7 @@
             <h1>FALLSTRUKTUR Scene Editor</h1>
             <p>
                 this website is a <em>very</em> janky and unpolished scene
-                editor. Please let me know if you encounter any bugs in usage at
+                editor. please let me know if you encounter any bugs in usage at
                 the <a href="https://github.com/OwOmay/fsscene">GitHub</a> page.
             </p>
             <p>thanks to:</p>
@@ -45,18 +45,22 @@
                 to keep this file in the folder of your world.scene file.
             </p>
             <form id="reloadexpected" action="javascript:void(0)">
-                <input type="file" />
+                <input type="file" id="expectedfile" accept="text/json" />
+                <button id="expectedfilebutton">select file</button>
+                <span id="expectedlabel">no file</span>
                 <button type="submit">reload initial configuration</button>
             </form>
             <hr />
             <p>
                 this uses the same files as the above, however instead of the
                 expected input, it sets the expected output. use it to load
-                shared presets. You do not need to use this to use presets,
+                shared presets. you do not need to use this to use presets,
                 however it's an easy way to do so.
             </p>
             <form id="loadgoal" action="javascript:void(0)">
-                <input type="file" />
+                <input type="file" id="goalfile" accept="text/json" />
+                <button id="goalfilebutton">select file</button>
+                <span id="goallabel">no file</span>
                 <button type="submit">load goal configuration</button>
             </form>
             <hr />
@@ -66,7 +70,9 @@
             <br />
             <hr />
             <label for="scene">scene</label>
-            <input type="file" id="scene" />
+            <input type="file" id="scene" accept=".scene" />
+            <button id="scenebutton">select file</button>
+            <span id="scenelabel">no file</span>
             <hr />
             <p id="usermod"><br /></p>
             <hr />
