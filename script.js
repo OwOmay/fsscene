@@ -66,9 +66,9 @@ window.addEventListener("load", () => {
               tempUserConfiguration[conf][1] = tempConfiguration[conf][1];
             } else {
               showError(
-                'Invalid content in JSON. Found "' +
+                'invalid content in JSON. found "' +
                   tempConfiguration[conf][0] +
-                  '". Expected "' +
+                  '". expected "' +
                   defaultConfiguration[conf][0] +
                   '".',
               );
@@ -76,8 +76,9 @@ window.addEventListener("load", () => {
             }
           }
           userConfiguration = tempUserConfiguration;
-        } catch {
-          showError("Invalid JSON File.");
+        } catch (e) {
+          showError("invalid JSON file.");
+          console.error(e);
         }
       });
   });
@@ -91,20 +92,21 @@ window.addEventListener("load", () => {
           let goal = JSON.parse(data);
           for (let conf = 0; conf < goal.length; conf++) {
             if (defaultConfiguration[conf][0] === goal[conf][0]) {
-              document.getElementById(conf[0]).value = conf[1];
+              document.getElementById(goal[conf][0]).value = goal[conf][1];
             } else {
               showError(
-                'Invalid content in JSON. Found "' +
+                'invalid content in JSON. found "' +
                   goal[conf][0] +
-                  '". Expected "' +
+                  '". expected "' +
                   goal[conf][0] +
                   '".',
               );
               return;
             }
           }
-        } catch {
-          showError("Invalid JSON File.");
+        } catch (e) {
+          showError("invalid JSON file.");
+          console.error(e);
         }
       });
   });
@@ -133,7 +135,7 @@ window.addEventListener("load", () => {
 
   document.getElementById("savescene").addEventListener("click", () => {
     let userMod =
-      "Please put the below in your level description or in an accessible text element in your level.\n";
+      "please put the below in your level description or in an accessible text element in your level.\n";
     for (let conf = 0; conf < defaultConfiguration.length; conf++) {
       if (
         parseFloat(
@@ -193,17 +195,17 @@ window.addEventListener("load", () => {
 
         if (found === 0) {
           showError(
-            "Didn't find any instances of the inputs! Is your Initial Config correct?",
+            "didn't find any instances of the inputs! is your initial config correct?",
           );
         } else if (found === 1) {
           showError(
-            "Only found 1 instance of the inputs. Is your scene corrupted? Acknowledge although is possibly OK.",
+            "only found 1 instance of the inputs. is your scene corrupted? this is likely ok.",
           );
         } else if (found > 2) {
           showError(
-            "Found " +
+            "found " +
               found +
-              " instances of the inputs. Watch out, some of your scene may have been deleted!",
+              " instances of the inputs. watch out, some of your scene may have been deleted!",
           );
         }
 
