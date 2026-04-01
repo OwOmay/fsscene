@@ -32,6 +32,29 @@ function showError(message) {
 }
 
 window.addEventListener("load", () => {
+  if (localStorage.getItem("theme") == null) {
+    document.getElementById("theme").value = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches
+      ? "mocha"
+      : "latte";
+    localStorage.setItem("theme", document.getElementById("theme").value);
+  } else {
+    document.getElementById("theme").value = localStorage.getItem("theme");
+  }
+  document.documentElement.setAttribute(
+    "data-theme",
+    document.getElementById("theme").value,
+  );
+
+  document.getElementById("theme").addEventListener("change", () => {
+    localStorage.setItem("theme", document.getElementById("theme").value);
+    document.documentElement.setAttribute(
+      "data-theme",
+      document.getElementById("theme").value,
+    );
+  });
+
   for (let conf = 0; conf < defaultConfiguration.length; conf++) {
     let label = document.createElement("label");
     label.innerText = defaultConfiguration[conf][0];

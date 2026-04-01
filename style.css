@@ -1,8 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css");
 
+:root {
+    --ctp-text: var(--ctp-mocha-text);
+    --ctp-subtext0: var(--ctp-mocha-subtext0);
+    --ctp-surface0: var(--ctp-mocha-surface0);
+    --ctp-base: var(--ctp-mocha-base);
+    --ctp-mantle: var(--ctp-mocha-mantle);
+}
+
+[data-theme="mocha"] {
+    --ctp-text: var(--ctp-mocha-text);
+    --ctp-subtext0: var(--ctp-mocha-subtext0);
+    --ctp-surface0: var(--ctp-mocha-surface0);
+    --ctp-base: var(--ctp-mocha-base);
+    --ctp-mantle: var(--ctp-mocha-mantle);
+}
+
+[data-theme="macchiato"] {
+    --ctp-text: var(--ctp-macchiato-text);
+    --ctp-subtext0: var(--ctp-macchiato-subtext0);
+    --ctp-surface0: var(--ctp-macchiato-surface0);
+    --ctp-base: var(--ctp-macchiato-base);
+    --ctp-mantle: var(--ctp-macchiato-mantle);
+}
+
+[data-theme="frappe"] {
+    --ctp-text: var(--ctp-frappe-text);
+    --ctp-subtext0: var(--ctp-frappe-subtext0);
+    --ctp-surface0: var(--ctp-frappe-surface0);
+    --ctp-base: var(--ctp-frappe-base);
+    --ctp-mantle: var(--ctp-frappe-mantle);
+}
+
+[data-theme="latte"] {
+    --ctp-text: var(--ctp-latte-text);
+    --ctp-subtext0: var(--ctp-latte-subtext0);
+    --ctp-surface0: var(--ctp-latte-surface0);
+    --ctp-base: var(--ctp-latte-base);
+    --ctp-mantle: var(--ctp-latte-mantle);
+}
+
 * {
-    color: var(--ctp-mocha-text);
+    color: var(--ctp-text);
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -18,7 +58,7 @@ a {
 
 html,
 body {
-    background: var(--ctp-mocha-base);
+    background: var(--ctp-base);
 }
 
 footer {
@@ -27,7 +67,7 @@ footer {
 }
 
 small {
-    color: var(--ctp-mocha-subtext0);
+    color: var(--ctp-subtext0);
 }
 
 #configuration {
@@ -45,32 +85,39 @@ small {
 }
 
 #settings > input,
-form > button,
-#scene,
+form > button[type="submit"],
+#scenebutton,
+#scenelabel,
 #savescene {
     float: right;
 }
 
-button,
-input[type="file"]::file-selector-button {
-    color: var(--ctp-mocha-text);
-    background: var(--ctp-mocha-mantle);
+#scenelabel {
+    transform: translate(-4px, 6px);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    color: var(--ctp-text);
+    background: var(--ctp-mantle);
     width: 200px;
-    border: 4px solid var(--ctp-mocha-surface0);
+    border: 4px solid var(--ctp-surface0);
     border-radius: 20px;
     padding: 4px;
 }
 
-button:active,
-input[type="file"]::file-selector-button:active {
-    background: var(--ctp-mocha-surface0);
+button:active {
+    background: var(--ctp-surface0);
 }
 
 input[type="number"] {
-    color: var(--ctp-mocha-text);
-    background: var(--ctp-mocha-mantle);
+    color: var(--ctp-text);
+    background: var(--ctp-mantle);
     width: 200px;
-    border: 4px solid var(--ctp-mocha-surface0);
+    border: 4px solid var(--ctp-surface0);
     border-radius: 10px;
     padding: 4px;
     margin-top: 3px;
@@ -99,8 +146,8 @@ input[type="number"] {
     margin: auto;
     width: 400px;
     height: 200px;
-    background: var(--ctp-mocha-base);
-    border: 4px solid var(--ctp-mocha-surface0);
+    background: var(--ctp-base);
+    border: 4px solid var(--ctp-surface0);
     text-align: center;
     border-radius: 20px;
 }
@@ -114,4 +161,14 @@ input[type="number"] {
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+select {
+    color: var(--ctp-text);
+    background: var(--ctp-mantle);
+    width: 200px;
+    border: 4px solid var(--ctp-surface0);
+    border-radius: 10px;
+    padding: 4px;
+    float: right;
 }
