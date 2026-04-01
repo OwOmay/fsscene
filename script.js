@@ -27,7 +27,7 @@ let defaultConfiguration = [
 let userConfiguration = JSON.parse(JSON.stringify(defaultConfiguration));
 
 function showError(message) {
-  document.getElementById("error").style.display = "block";
+  document.getElementById("errorcontainer").style.display = "block";
   document.querySelector("#error > p").innerText = message;
 }
 
@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
   }
 
   document.querySelector("#error > button").addEventListener("click", () => {
-    document.getElementById("error").style.display = "none";
+    document.getElementById("errorcontainer").style.display = "none";
   });
 
   document.getElementById("reloadexpected").addEventListener("submit", () => {
